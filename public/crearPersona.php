@@ -2,6 +2,7 @@
    
     namespace proyecto;
     use Exception;
+    use function print_r;
 
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
@@ -16,6 +17,7 @@
         $p->apellido_paterno = "Esquivel";
         $p->apellido_materno = "Duran";
         $p->save();
+    print_r(    $p);
     
     }catch (Exception $e){
             return $e->getMessage();
