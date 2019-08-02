@@ -1,0 +1,18 @@
+{
+    "name": "proyecto/oop",
+    "type": "project",
+    "description": "proyecto guia para el uso de clases con  php",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ramiro Esquivel Duran",
+            "email": "ramiro174@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "proyecto\\": "srcphp/"
+        }
+    }
+}
