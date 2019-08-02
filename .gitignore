@@ -1,2 +1,8 @@
 .idea
-
+.bash_logout
+.bash_profile
+.bashrc
+.cache/
+.conf/
+.gitconfig
+.ssh/
