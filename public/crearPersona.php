@@ -2,7 +2,7 @@
     
     namespace proyecto;
     
-    use Exception;
+    use Exception
     
     error_reporting(E_ALL);
     error_reporting(-1);
