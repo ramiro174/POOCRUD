@@ -9,7 +9,7 @@
   
 //
         $p = new Persona();
-        $p->nombre = "Juanitos2";
+        $p->nombre = "pepe";
         $p->edad = "22";
         $p->apellido_paterno = "Esquivel";
         $p->apellido_materno = "Duran";
