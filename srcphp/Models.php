@@ -5,6 +5,7 @@
    
     use proyecto\Conexion;
     
+    require ("../srcphp/Conexion.php");
     class Models
     {
         /**
