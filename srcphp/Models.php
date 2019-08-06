@@ -2,7 +2,7 @@
     
     namespace proyecto;
     
-    use function print_r;
+   
     use proyecto\Conexion;
     
     class Models
