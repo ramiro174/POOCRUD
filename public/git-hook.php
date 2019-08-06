@@ -7,7 +7,5 @@ $output=array();
 
 exec('git pull 2>&1', $output);
 //var_dump ($output);
-
-
 echo json_encode($output);
 ?>

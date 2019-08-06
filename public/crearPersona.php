@@ -1,9 +1,7 @@
 <?php
     
     namespace proyecto;
-
     
-   
     use Exception;
 
    try{
