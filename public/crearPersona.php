@@ -3,11 +3,12 @@
     namespace proyecto;
 
     
-    echo "ramiro";
-//    use Exception;
-//
-//    try{
-//    require("../vendor/autoload.php");
+   
+    use Exception;
+
+   try{
+  require("../vendor/autoload.php");
+       echo "ramiro";
 //
 //        $p = new Persona();
 //        $p->nombre = "Juanitos";
@@ -18,9 +19,9 @@
 //      print_r($p);
 //
 //
-//    } catch (Exception $e) {
-//        return $e->getMessage();
-//    }
+    } catch (Exception $e) {
+        return $e->getMessage();
+    }
 //
 
 
