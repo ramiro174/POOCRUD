@@ -16,11 +16,12 @@
         $p->apellido_materno = "Duran";
         $p->save();
       print_r($p);
-      echo "sss";
+   
       
     } catch (Exception $e) {
         return $e->getMessage();
     }
+    
     
     
     
