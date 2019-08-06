@@ -16,7 +16,7 @@
         protected $table = "";
         public function __construct()
         {
-            $cc = new  Conexion("ramiro_db", "localhost", "ramiro_ramiror ", "orimar174");
+            $cc = new  Conexion("ramiro_db", "localhost", "ramiro_bdramir ", "orimar174");
             self::$pdo = $cc->getPDO();
         }
         public function create(array $obj)
