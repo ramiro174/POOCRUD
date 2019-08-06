@@ -7,11 +7,11 @@
     use Exception;
 
    try{
-  require("../srcphp/Persona.php");
+  require("../vendor/autoload.php");
   
 //
         $p = new Persona();
-        $p->nombre = "Juanitos";
+        $p->nombre = "Juanitos2";
         $p->edad = "22";
         $p->apellido_paterno = "Esquivel";
         $p->apellido_materno = "Duran";
@@ -20,7 +20,7 @@
 //
 //
     } catch (Exception $e) {
-          echo ($e->getMessage());
+        return $e->getMessage();
     }
 //
 
