@@ -6,6 +6,7 @@
     /**
      * Class Persona
      */
+    require ("../srcphp/Models.php");
     class Persona extends Models
     {
         /**
