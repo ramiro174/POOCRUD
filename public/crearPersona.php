@@ -7,7 +7,7 @@
     use Exception;
 
    try{
-  require("../vendor/autoload.php");
+  require("../srcphp/Persona.php");
        echo "ramiro";
 //
         $p = new Persona();
