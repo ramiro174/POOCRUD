@@ -6,7 +6,7 @@
     
     error_reporting(E_ALL);
     ini_set('error_reporting', E_ALL);
-    try {
+    try
     require("../vendor/autoload.php");
    
         $p = new Persona();
