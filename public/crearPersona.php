@@ -8,7 +8,7 @@
 
    try{
   require("../srcphp/Persona.php");
-       echo "ramiro";
+  
 //
         $p = new Persona();
         $p->nombre = "Juanitos";
@@ -20,7 +20,7 @@
 //
 //
     } catch (Exception $e) {
-        return $e->getMessage();
+          echo ($e->getMessage());
     }
 //
 
