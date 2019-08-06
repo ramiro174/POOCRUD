@@ -12,10 +12,10 @@
 //
         $p = new Persona();
         $p->nombre = "Juanitos";
-//        $p->edad = "22";
-//        $p->apellido_paterno = "Esquivel";
-//        $p->apellido_materno = "Duran";
-//        $p->save();
+        $p->edad = "22";
+        $p->apellido_paterno = "Esquivel";
+        $p->apellido_materno = "Duran";
+        $p->save();
       echo($p->nombre);
 //
 //
