@@ -20,7 +20,7 @@
 //
 //
     } catch (Exception $e) {
-        return $e->getMessage();
+           echo($e->getMessage());
     }
 //
 
