@@ -1,71 +1,60 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Mi primer sitio</title>
-    <link rel="stylesheet"  href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/bootstrap.css"/>
     <link rel="stylesheet" type="text/css" href="css/miestilo.css">
     <script src="js/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="js/bootstrap.js" type="text/javascript" charset="utf-8" ></script>
-  </head>
-  <body>
-    <div class="container">
-      
-      <div class="row  mt-5">
+    <script src="js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row  mt-5">
         <div class="col-md-6 offset-md-3">
-          <div class="card">
-            <div class="card-header  bg-info text-white">
-              Peticion Ajax
-            </div>
-            <div class="card-body ">
-              <form >
-                <div class="form-group">
-                  <label for="idinput">Edad:</label>
-                  <input  class="form-control" type="text" name="" value="" placeholder=""  id="edad"/>
+            <div class="card">
+                <div class="card-header  bg-info text-white">
+                    Peticion Ajax
                 </div>
+                <div class="card-body ">
+                    <form>
+                        <div class="form-group">
+                            <label for="nombre">Nombre:</label>
+                            <input class="form-control" type="text" name="nombre" value="" placeholder="" id="nombre"/>
+                        </div>
 
-                <h4 id="ms"></h4>
-              </form>
+                        <div class="form-group">
+                            <label for="edad">Edad:</label>
+                            <input class="form-control" type="text" name="edad" value="" placeholder="" id="edad"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="apellidoPaterno">Apellido Paterno:</label>
+                            <input class="form-control" type="text" name="apellidoPaterno" value="" placeholder="" id="apellidoPaterno"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="apellidoMaterno">Apellido Materno:</label>
+                            <input class="form-control" type="text" name="apellidoMaterno" value="" placeholder="" id="apellidoMaterno"/>
+                        </div>
+
+                        <h4 id="ms"></h4>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <button type="button" class="btn btn-outline-info  offset-10" id="btnguardar">enviar</button>
+                </div>
             </div>
-            <div class="card-footer">
-              <button type="button"  class="btn btn-outline-info  offset-10" id="btnguardar">enviar</button>
-            </div>
-          </div>
         </div>
-        
-        
-      </div>
-      
-      
     </div>
-  </body>
+</div>
+</body>
 </html>
 <script>
-$(document).ready(function(){
-  $("#btnguardar").click(function(){
-  $.ajax({
-          url:"miphp.php",
-          data:{
-          nombre:"ramiro",
-          edad:$("#edad").val()
-          },
-          type:"GET",
-          dataType : 'json',
-          success:function(data){
-            $("#ms").html(data.text);
+	$(document).ready(function () {
+		$("#btnguardar").click(function () {
 
-          },
-          error : function(xhr, status) {
-          alert('Disculpe, existió un problema');
-          },
-          // código a ejecutar sin importar si la petición falló o no
-          complete : function(xhr, status) {
-        
-          }
-          })
-  })
-})
+		})
+	})
 </script>

@@ -101,7 +101,7 @@
         public function getPDO(): PDO
         {
             try {
-                $dsn = "mysql:host=localhost;dbname=$this->dbname";
+                $dsn = "mysql:host=uttics.com;dbname=$this->dbname";
                 self::$DB = new PDO($dsn, $this->user, $this->password);
                 return self::$DB;
             } catch (PDOException $e) {
