@@ -19,7 +19,7 @@
         
         public function __construct()
         {
-            $cc = new  Conexion("practica_bd", "uttics.com", "practica_usr", "orimar174");
+            $cc = new  Conexion("agenda", "localhost", "ramiro", "orimar174");
             self::$pdo = $cc->getPDO();
         }
         public function create(array $obj)
@@ -38,11 +38,14 @@
             }
             $campos .= " )";
             $valores .= " )";
+            
             $stmt = self::$pdo->prepare("INSERT INTO $this->table   $campos VALUES  $valores");
             
             foreach ($obj as $prop => $val) {
                 $stmt->bindValue(":$prop", $val);
             }
+            
+            
             $stmt->execute();
         }
         public function save()

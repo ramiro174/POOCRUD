@@ -3,6 +3,8 @@
     namespace proyecto;
  
 
+
+
     /**
      * Class Persona
      */
@@ -12,10 +14,11 @@
         /**
          * @var array
          */
-        protected $filleable = ["nombre", "estado"];
+        protected $filleable = ["nombre"];
         protected $table = "ciudades";
-        public $nombre = "";
-        public $estado = "";
        
+        public $nombre= "";
+       
+        
         
     }
