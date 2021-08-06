@@ -21,9 +21,7 @@ class ComposerStaticInitfb9c27f0811c6f21e183fe25a1c15d8b
     );
 
     public static $classMap = array (
-        'proyecto\\Conexion' => __DIR__ . '/../..' . '/srcphp/Conexion.php',
-        'proyecto\\Models' => __DIR__ . '/../..' . '/srcphp/Models.php',
-        'proyecto\\Persona' => __DIR__ . '/../..' . '/srcphp/Persona.php',
+        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

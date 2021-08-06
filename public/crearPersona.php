@@ -6,10 +6,10 @@
     
 
    try{
-        require("../vendor/autoload.php");
+//        require("../vendor/autoload.php");
   
       //echo json_encode ($_POST);
-       extract($_POST);
+      return  extract($_POST);
 //       echo $nombre;
        
       

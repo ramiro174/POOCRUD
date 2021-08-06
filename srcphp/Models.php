@@ -70,8 +70,6 @@
 
             return  json_encode($resultados);
         }
-        
-        
         public function delete($id){
             
             try{

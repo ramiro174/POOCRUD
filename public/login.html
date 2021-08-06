@@ -22,23 +22,16 @@
                     <div class="card-body ">
                         <form>
                             <div class="form-group">
-                                <label for="nombre">Nombre:</label>
-                                <input class="form-control"  v-model="persona.nombre" type="text" name="nombre" value="" placeholder="" id="nombre"/>
+                                <label for="nombre">Usuario:</label>
+                                <input class="form-control"  v-model="persona.usuario" type="text" name="usuario" value="" placeholder="" id="nombre"/>
                             </div>
 
                             <div class="form-group">
-                                <label for="edad">Edad:</label>
-                                <input class="form-control"  v-model="persona.edad" type="text" name="edad" value="" placeholder="" id="edad"/>
+                                <label for="edad">Contraeña:</label>
+                                <input class="form-control"  v-model="persona.contrasena" type="password" name="contrasena" value="" placeholder="" id="edad"/>
                             </div>
-                            <div class="form-group">
-                                <label for="apellido_paterno">Apellido Paterno:</label>
-                                <input class="form-control"  v-model="persona.apellido_paterno" type="text" name="apellido_paterno" value="" placeholder="" id="apellido_paterno"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="apellido_materno">Apellido Materno:</label>
-                                <input class="form-control"  v-model="persona.apellido_materno" type="text" name="apellido_materno" value="" placeholder="" id="apellido_materno"/>
-                            </div>
-                            <h4 id="ms"></h4>
+
+                            <h4 id="ms"  v-if="mostrarerror"> No Existes!!!! </h4>
                         </form>
                     </div>
                     <div class="card-footer">
@@ -61,25 +54,28 @@
 		el: '#app',
 		data: {
 			message: 'Registro de  Mensaje',
+			mostrarerror:false,
            persona:{
-			   nombre:"",
-			   apellido_paterno:"",
-			   apellido_materno:"",
-			   edad:""
+			   usuario:"",
+			   contrasena:"",
+
            },
 		},
         methods:{
 			enviardatos:function(){
 				var params = new URLSearchParams();
-				params.append('nombre', this.persona.nombre);
-				params.append('apellido_paterno', this.persona.apellido_paterno);
-				params.append('apellido_materno', this.persona.apellido_materno);
-				params.append('edad', this.persona.edad);
+				params.append('usuario', this.persona.usuario);
+				params.append('contrasena', this.persona.contrasena);
 
-				axios.post('/crearPersona.php', params)
-				.then(function (response) {
+				axios.post('/iniciarsessioncontroller.php', params)
+				.then((response) => {
+					this.mostrarerror=!response.data.acceso;
+					if(response.data.acceso){
+						window.location="/";
 
-					console.log(response);
+                    }
+
+
 				})
 				.catch(function (error) {
 					console.log(error);

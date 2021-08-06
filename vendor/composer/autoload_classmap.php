@@ -6,7 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'proyecto\\Conexion' => $baseDir . '/srcphp/Conexion.php',
-    'proyecto\\Models' => $baseDir . '/srcphp/Models.php',
-    'proyecto\\Persona' => $baseDir . '/srcphp/Persona.php',
+    'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
 );
