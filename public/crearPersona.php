@@ -3,27 +3,40 @@
     namespace proyecto;
     
     use Exception;
+    
 
    try{
-  require("../vendor/autoload.php");
+//        require("../vendor/autoload.php");
   
-       $p = new Persona();
+      //echo json_encode ($_POST);
+      return  extract($_POST);
+//       echo $nombre;
+       
+      
+       $c=new Ciudad();
+//       $c->nombre=$nombre;
+//       $c->save();
+      
+      
+      echo  json_encode( $c->all());
+   
+      
+      
+      
+//        $p = new Persona();
 //        $p->nombre = "Ramiro22";
 //        $p->edad = "22";
 //        $p->apellido_paterno = "Esquivel";
 //        $p->apellido_materno = "Duran";
 //        $p->save();
 //
-        $c=new Ciudad();
-        $c->nombre="Nuevo Casas Grandes";
-        $c->estado="Chihuahua";
-        $c->save();
+
 
 //      echo($p->nombre);
 //      echo $c->nombre;
 //
 //
-    echo $p->PersonaMayores(20);
+    //echo $p->PersonaMayores(20);
     
     
     
