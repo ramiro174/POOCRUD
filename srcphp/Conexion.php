@@ -1,9 +1,9 @@
 <?php
-    
+
     namespace proyecto;
-    
+
     use PDO;
-    
+
     class Conexion
     {
         /**
@@ -78,7 +78,7 @@
             return $this->user;
         }
         /**
-         * @param string $user
+        return         * @param string $user
          */
         public function setUser(string $user): void
         {
@@ -98,13 +98,14 @@
         {
             $this->password = $password;
         }
-        public function getPDO(): PDO
+        public function getPDO():PDO
         {
             try {
                 $dsn = "mysql:host=localhost;dbname=$this->dbname";
                 self::$DB = new PDO($dsn, $this->user, $this->password);
-                return self::$DB;
+               return   self::$DB;
             } catch (PDOException $e) {
+
                 return $e;
             }
         }
