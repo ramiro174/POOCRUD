@@ -14,6 +14,8 @@ class User extends Models
     public $nombre = "";
     public $edad = "";
     public $correo = "";
+    public $apellido = "";
+
     public $id = "";
 
     /**
@@ -23,6 +25,7 @@ class User extends Models
         "nombre",
         "edad",
         "correo",
+        "apellido",
         "contrasena",
         "user"
     ];

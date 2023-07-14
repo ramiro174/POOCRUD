@@ -9,8 +9,11 @@ protected $message;
 protected $headers = array(
 		'Cache-Control: no-cache',				// Prevent any caching en-route
 		'Pragma: no-cache',						//		ditto (just in case)
-		'Content-Type: application/json',		// MIME type for a json response
+		'content-type: application/json; charset=utf-8',		// MIME type for a json response
         'Access-Control-Allow-Origin: *',		// Allow cross-domain AJAX
+        'Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With',
+        'Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS'
+
 	);
 
 function __construct(){

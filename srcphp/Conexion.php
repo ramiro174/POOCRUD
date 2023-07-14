@@ -102,8 +102,10 @@
         {
             try {
                 $dsn = "mysql:host=localhost;dbname=$this->dbname";
-                self::$DB = new PDO($dsn, $this->user, $this->password);
-               return   self::$DB;
+                if (self::$DB == null) {
+                    self::$DB = new PDO($dsn, $this->user, $this->password);
+                }
+                return   self::$DB;
             } catch (PDOException $e) {
 
                 return $e;

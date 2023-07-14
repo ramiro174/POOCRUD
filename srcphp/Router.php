@@ -39,6 +39,7 @@ public static function any($route, $path_to_include)
 }
 public static function route($route, $path_to_include)
 {
+     Router::headers();
 	 $callback = $path_to_include;
 	if (!is_callable($callback) && !is_array($callback)) {
 		if (!strpos($path_to_include, '.php')) {
@@ -80,10 +81,21 @@ public static function route($route, $path_to_include)
 		}
 	}
     if (is_array($callback)) {
+        try {
 
-        $i= new $callback[0]();
-        call_user_func_array([$i,$callback[1]], $parameters);
-        exit();
+
+            $i = new $callback[0]();
+            call_user_func_array([$i, $callback[1]], $parameters);
+            exit();
+        } catch (\Exception $e) {
+
+            echo json_encode([
+                "error" => $e->getMessage()
+            ]);
+            exit();
+        }
+
+
     }
 
 	// Callback function
@@ -91,8 +103,6 @@ public static function route($route, $path_to_include)
 		call_user_func_array($callback, $parameters);
 		exit();
 	}
-
-
 	include_once __DIR__ . "/$path_to_include";
 	exit();
 }
@@ -121,4 +131,13 @@ public static function is_csrf_valid()
 	}
 	return true;
 }
+
+public  static function headers(){
+    header('Access-Control-Allow-Origin: *');
+    header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+    header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
+}
+
+
+
 }

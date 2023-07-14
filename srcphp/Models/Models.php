@@ -45,9 +45,9 @@
             foreach ($obj as $prop => $val) {
                 $stmt->bindValue(":$prop", $val);
             }
-
-
-            $stmt->execute();
+            if($stmt->execute()){
+                return $this->id=(self::$pdo->lastInsertId());
+            };
         }
         public function save()
         {
@@ -59,10 +59,11 @@
             }
             $this->create($ob);
         }
-        public function all(){
+        public static function all(){
+            $class = get_called_class();
+            $c = new $class();
 
-
-            $stmt = self::$pdo->prepare("select * from $this->table");
+            $stmt = self::$pdo->prepare("select * from  $c->table");
 
             $stmt->execute();
 
@@ -101,13 +102,21 @@
 
             return  $resultados[0];
         }
-
-        static function  removeNamespaceFromClass($className) {
-            if ($lastBackslash = strrpos($className, '\\')) {
-                $className = substr($className, $lastBackslash + 1);
+        public  static function where($field,$condition,$value){
+            $class = get_called_class();
+            $c = new $class();
+            $cid= $c->id!=""?$c->id:"id";
+            $stmt = self::$pdo->prepare("select *  from $c->table  where  $field $condition :value");
+            $stmt->bindParam(":value",$value);
+            $stmt->execute();
+            $resultados = $stmt->fetchAll(PDO::FETCH_CLASS, get_called_class());
+            if($resultados==null){
+                return  null;
             }
-            return $className;
+
+            return  $resultados;
         }
+
 
 
 
