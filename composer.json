@@ -10,7 +10,8 @@
         }
     ],
     "require": {
-        "vlucas/phpdotenv": "^5.5"
+        "vlucas/phpdotenv": "^5.5",
+        "nesbot/carbon": "^2.68"
     },
     "autoload": {
         "psr-4": {

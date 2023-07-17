@@ -22,6 +22,9 @@ class UserController
             $user->contrasena = $dataObject->contrasena;
             $user->save();
             $r = new Success($user);
+
+
+
             return $r->Send();
         }catch (\Exception $e){
             $r = new Failure(401,$e->getMessage());
