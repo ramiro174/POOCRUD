@@ -21,11 +21,11 @@ class Table
 }
     static function query($query)
     {
-
         $cc = new  Conexion("web", "localhost", "root", "");
         self::$pdo = $cc->getPDO();
         $stmt = self::$pdo->query($query);
         $resultados = $stmt->fetchAll(PDO::FETCH_OBJ);
         return $resultados;
     }
+
 }

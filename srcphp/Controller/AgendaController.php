@@ -4,6 +4,7 @@ namespace proyecto\Controller;
 
 use proyecto\Models\Table;
 use proyecto\Models\Telefono;
+use proyecto\Response\Failure;
 use proyecto\Response\Success;
 
 class AgendaController
@@ -18,8 +19,14 @@ class AgendaController
     }
     function buscartelefono($id){
         $t=Telefono::find($id);
-        $r= new Success($t);
-        return $r->Send();
+        if($t){
+            $r= new Success($t);
+            return $r->Send();
+        }else
+        {
+            $r=new Failure(404,"No se encontro el telefono");
+            return $r->Send();
+        }
     }
 
     function mostrartelefonos(){

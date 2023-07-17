@@ -72,11 +72,12 @@
 
             return  json_encode($resultados);
         }
-        public function delete($id){
-
+        public static function delete($id){
+            $class = get_called_class();
+            $c = new $class();
             try{
-                $cid= $this->id!=""?$this->id:"id";
-                $stmt = self::$pdo->prepare("delete from $this->table where $cid=:id");
+                $cid=   $c->id!=""?  $c->id:"id";
+                $stmt = self::$pdo->prepare("delete from   $c->table where $cid=:id");
                 $stmt->bindParam(":id",$id);
                 $stmt->execute();
                 }
@@ -84,8 +85,24 @@
                 return $e;
             }
         }
-        public function deleteAll(){
-            $stmt = self::$pdo->prepare("delete  from $this->table ");
+        public static function deleteby($field,$condition,$value){
+            $class = get_called_class();
+            $c = new $class();
+            try{
+                $cid=   $c->id!=""?  $c->id:"id";
+                $stmt = self::$pdo->prepare("delete from   $c->table where $field $condition :value");
+                $stmt->bindParam(":value",$value);
+                $stmt->execute();
+                }
+            catch (Exception $e) {
+                return $e;
+            }
+        }
+        public static function deleteAll(){
+            $class = get_called_class();
+            $c = new $class();
+
+            $stmt = self::$pdo->prepare("delete  from $c->table ");
             $stmt->execute();
         }
         public  static function find($id){
@@ -105,7 +122,6 @@
         public  static function where($field,$condition,$value){
             $class = get_called_class();
             $c = new $class();
-            $cid= $c->id!=""?$c->id:"id";
             $stmt = self::$pdo->prepare("select *  from $c->table  where  $field $condition :value");
             $stmt->bindParam(":value",$value);
             $stmt->execute();

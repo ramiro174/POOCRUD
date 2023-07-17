@@ -5,10 +5,12 @@ namespace proyecto\Models;
 
 use PDO;
 use proyecto\Auth;
+use proyecto\Response\Success;
 use function json_encode;
 
 class User extends Models
 {
+
     public $user = "";
     public $contrasena = "";
     public $nombre = "";
@@ -29,7 +31,7 @@ class User extends Models
         "contrasena",
         "user"
     ];
-    protected  $table = "usuarios";
+    protected    $table = "usuarios";
 
 
 
@@ -59,7 +61,6 @@ class User extends Models
 
     public function find_name($name)
     {
-
         $stmt = self::$pdo->prepare("select *  from $this->table  where  nombre=:name");
         $stmt->bindParam(":name", $name);
         $stmt->execute();
@@ -69,4 +70,15 @@ class User extends Models
         }
         return json_encode($resultados[0]);
     }
+
+    public  function reportecitas(){
+        $JSONData = file_get_contents("php://input");
+        $dataObject = json_decode($JSONData);
+
+        $name=$dataObject->name;
+        $d=Table::query("select * from users  where name='".$name."'");
+        $r=new Success($d);
+
+    }
+
 }

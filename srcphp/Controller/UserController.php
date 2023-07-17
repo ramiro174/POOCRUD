@@ -31,4 +31,29 @@ class UserController
 
 
     }
+
+    function buscar(){
+        $JSONData = file_get_contents("php://input");
+        $dataObject = json_decode($JSONData);
+        if(property_exists($dataObject->nombre)){
+
+           $alluser= User::where("nombre","=",$dataObject->nombre);
+           if($alluser){
+               $r=new Success($alluser);
+           }
+
+
+
+        }
+
+
+    }
+
+
+    function eliminarAllUsers(){
+         User::deleteAll();
+    }
+    function eliminarUsersbyId($id){
+         User::delete($id);
+    }
 }
