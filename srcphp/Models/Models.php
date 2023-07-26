@@ -69,8 +69,7 @@
 
             $resultados = $stmt->fetchAll(PDO::FETCH_OBJ);
 
-
-            return  json_encode($resultados);
+            return  $resultados;
         }
         public static function delete($id){
             $class = get_called_class();

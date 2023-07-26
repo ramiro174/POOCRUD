@@ -11,7 +11,8 @@
     ],
     "require": {
         "vlucas/phpdotenv": "^5.5",
-        "nesbot/carbon": "^2.68"
+        "nesbot/carbon": "^2.68",
+        "firebase/php-jwt": "^6.8"
     },
     "autoload": {
         "psr-4": {

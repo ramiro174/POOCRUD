@@ -1,6 +1,8 @@
 <?php
 
 namespace proyecto\Controller;
+
+use proyecto\Auth;
 use proyecto\Models\User;
 use proyecto\Response\Failure;
 use proyecto\Response\Success;
@@ -8,9 +10,28 @@ use proyecto\Response\Success;
 class UserController
 {
 
+    function auth()
+    {
+        try {
+            $JSONData = file_get_contents("php://input");
+            $dataObject = json_decode($JSONData);
+            if (!property_exists($dataObject, "user") || !property_exists($dataObject, "contrasena")) {
+                throw new \Exception("Faltan datos");
+            }
+            return User::auth($dataObject->user, $dataObject->contrasena);
+
+        } catch (\Exception $e) {
+            $r = new Failure(401, $e->getMessage());
+            return $r->Send();
+        }
+
+
+    }
+
+
     function registro()
     {
-        try{
+        try {
             $JSONData = file_get_contents("php://input");
             $dataObject = json_decode($JSONData);
             $user = new User();
@@ -24,27 +45,25 @@ class UserController
             $r = new Success($user);
 
 
-
             return $r->Send();
-        }catch (\Exception $e){
-            $r = new Failure(401,$e->getMessage());
+        } catch (\Exception $e) {
+            $r = new Failure(401, $e->getMessage());
             return $r->Send();
         }
 
 
-
     }
 
-    function buscar(){
+    function buscar()
+    {
         $JSONData = file_get_contents("php://input");
         $dataObject = json_decode($JSONData);
-        if(property_exists($dataObject->nombre)){
+        if (property_exists($dataObject->nombre)) {
 
-           $alluser= User::where("nombre","=",$dataObject->nombre);
-           if($alluser){
-               $r=new Success($alluser);
-           }
-
+            $alluser = User::where("nombre", "=", $dataObject->nombre);
+            if ($alluser) {
+                $r = new Success($alluser);
+            }
 
 
         }
@@ -52,11 +71,21 @@ class UserController
 
     }
 
-
-    function eliminarAllUsers(){
-         User::deleteAll();
+    function listar()
+    {
+        $alluser = User::all();
+        $r = new Success($alluser);
+        return $r->Send();
     }
-    function eliminarUsersbyId($id){
-         User::delete($id);
+
+
+    function eliminarAllUsers()
+    {
+        User::deleteAll();
+    }
+
+    function eliminarUsersbyId($id)
+    {
+        User::delete($id);
     }
 }
